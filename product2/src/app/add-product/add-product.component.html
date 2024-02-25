@@ -1,0 +1,21 @@
+<!-- 
+
+<form (ngSubmit)="saveProduct()">
+
+   Product Name <input type="text" name="productName" id="productName" /> <br>
+   Product Price  <input type="text" name="productPrice" id="productPrice" />
+
+   <button type="submit"></button>
+
+(ngSubmit)="saveProduct(product)"
+
+
+</form> -->
+
+
+<!-- app.component.html -->
+<form (ngSubmit)="saveProduct()">
+    <input type="text" name="productName" placeholder="Name" [(ngModel)]="product.productName" />
+    <input type="text" name="productPrice" [(ngModel)]="product.productPrice" placeholder="price">
+    <button type="submit">Save</button>
+</form>

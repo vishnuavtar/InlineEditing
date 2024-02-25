@@ -1,0 +1,109 @@
+<!-- <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of products">
+        <td>{{ row.pid }}</td>
+        <td>
+          <div *ngIf="editRow[row.pid]">
+            <input type="text" [(ngModel)]="editRow[row.pid].productName">
+          </div>
+          <div *ngIf="!editRow[row.pid]">{{ row.productName }}</div>
+        </td>
+        <td>
+          <div *ngIf="editRow[row.pid]">
+            <input type="text" [(ngModel)]="editRow[row.pid].productPrice">
+          </div>
+          <div *ngIf="!editRow[row.pid]">{{ row.productPrice }}</div>
+        </td>
+        <td>
+          <div *ngIf="!editRow[row.pid]">
+            <button (click)="edit(row)">Edit</button>
+          </div>
+          <div *ngIf="editRow[row.pid]">
+            <button (click)="save(row)">Save</button>
+            <button (click)="cancel(row)">Cancel</button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+   -->
+
+<div class="row">
+    <div class="col-12">
+        <!-- {{oldUserObj || json}} -->
+        <button class="btn btn-sm btn-primary" (click)="onAdd()">Add new</button>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+
+        <table class="table table-bordered">
+
+            <thead>
+                <tr class="bg-success text-white">
+
+                    <th>pid</th>
+                    <th>Product Name</th>
+                    <th>Product Price</th>
+                    <th>Action</th>
+
+
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let product of products; let pidNo = index">
+                    <td>{{pidNo+1}}</td>
+
+                    <td>
+                        <div *ngIf="product.isEdit">
+                            <input type="text" [(ngModel)]="product.productName" style="border: none;">
+                        </div>
+                        <div *ngIf="!product.isEdit">{{product.productName}}</div>
+
+                    </td>
+
+                    <td>
+                        <div *ngIf="product.isEdit">
+                            <input type="text" [(ngModel)]="product.productPrice" style="border: none;">
+                        </div>
+                        <div *ngIf="!product.isEdit">{{product.productPrice}}</div>
+
+
+                    </td>
+
+                    <td class="text-center">
+
+                        
+                        <div *ngIf="!product.isEdit">
+                            <i class="fa-regular fa-pen-to-square" aria-hidden="true" (click)="onEdit(product)">edit</i>
+                            <i class="fa-solid fa-trash" aria-hidden="true" (click)="onDelete(product.pid)">delete</i>
+                        </div>
+                        <div *ngIf="product.isEdit">
+                            <i class="fa-regular fa-pen-to-square px-2" aria-hidden="true" (click)="onUpdate()">save</i>
+                            <i class="fa-regular fa-pen-to-square" aria-hidden="true" (click)="onCancel(product)">cancel</i>
+
+                        </div>
+
+                    </td>
+                </tr>
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+
+
+

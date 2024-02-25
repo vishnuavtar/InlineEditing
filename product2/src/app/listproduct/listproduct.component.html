@@ -1,0 +1,135 @@
+<!-- 
+ <div class="filter-container">Download
+    <img title="Export Malware count to CSV" class="cp" width="40" style="margin-top: 0px"
+      src="../../../../content/images/cap2.0/cyfirma_v1/CYFIRMA_icon_csv_export.png"
+      (click)="downloadProductList()" />
+    </div>
+    
+<div *ngIf="products">
+  <input type="text" [(ngModel)]="filters.keywords" name="keywords" (input)="getEmployee()">
+<table>
+
+<tr>
+<th>Product Id</th>
+<th>Product Name</th>
+<th>Product Price</th>  
+<th>Actions</th>      
+</tr>
+<tr *ngFor="let p of products">
+    <td>{{p.pid}}</td>
+    <td>{{p.productName}}</td>
+    <td>{{p.productPrice}}</td>
+    <td>
+        <button (click)="updateProduct(p.pid)">Edit</button>
+    </td>
+    <td>
+        <button (click)="deleteProduct(p.pid)">Delete</button>
+    </td>
+
+    <td>
+      <button (click)="details(p.pid)">View</button>
+    </td>
+</tr>
+    
+</table>
+
+<mat-paginator [length]="totalItems" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 25, 100]"
+      (page)="onPageChange($event)">
+    </mat-paginator>
+</div>  -->
+
+  
+  <!-- <div *ngIf="products">
+   
+    <ul>
+      <li *ngFor="let p of products">
+        {{ p.pid }} - {{ p.productName }} -{{p.productPrice}}
+      </li>
+    </ul>
+  
+    <mat-paginator [length]="totalItems" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 25, 100]"
+      (page)="onPageChange($event)">
+    </mat-paginator>
+  </div>
+ -->
+
+
+
+<!-- <div>
+    <label for="startDate">Start Date:</label>
+    <input type="date" id="startDate" [(ngModel)]="startDate">
+  </div>
+  <div>
+    <label for="endDate">End Date:</label>
+    <input type="date" id="endDate" [(ngModel)]="endDate">
+  </div>
+  <button (click)="downloadProductRange()">Download Products</button>
+ 
+
+    -->
+
+
+
+
+
+<!-- 
+  //////////////////////////// -->
+
+<!-- 
+
+  <div>
+    <input type="text" [(ngModel)]="productName" placeholder="Search by name">
+    <button (click)="searchByName(name,page,size)">Search</button>
+  </div>
+  
+  <ul>
+    <li *ngFor="let p of products">
+      {{ p.productName}}
+    </li>
+  </ul>
+   -->
+
+
+<!-- 
+   <form action="">
+
+    Product Price <input type="text" id="pid" name="pid" [(ngModel)]="products.productName">
+
+    <tr *ngFor="let pp of products">
+      <td>{{products.pid}}</td>
+      <td>{{products.productName}}</td>
+      <td>{{products.productPrice}}</td>
+    </tr>
+
+   </form> -->
+
+
+   <div class="container">
+    <div>
+      <select (change)="onTableSizeChange($event)">
+        <option *ngFor="let size of tableSizes">
+        {{size}}
+        </option>
+      </select>
+    </div>
+    <table class="table">
+      <thead>
+        <th>Id</th>
+        <th>Id</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let post of products | paginate:{itemsPerPage:tableSize,
+          currentPage:page,
+          totalItems:count}; let i = index">
+        <td>{{post.pid}}</td>
+        <td>{{post.productName}}</td>
+        <td>{{post.productPrice}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div>
+      <pagination-controls previousLabel="Prev" nextLabel="Next" 
+      (pageChange)="onTableDataChange($event)">
+    </pagination-controls>
+    </div>
+   </div>
